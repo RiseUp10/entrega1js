@@ -13,6 +13,7 @@ while (precioProductoSinParsear == "" || precioProductoSinParsear == " ") {
 precioProducto = parseInt(precioProductoSinParsear);
 
 let precioConDescuento = 0;
+let ahorro = 0;
 
 let descuento = prompt(
   "Contame como vas a pagar los $"+precioProducto+" del/la "+producto+
@@ -34,18 +35,25 @@ let descuento = prompt(
 
     default:
       alert('Ingresaste un número equivocado');
+      break
   }
 
 function calcularDescuentoTC(precioProducto) {
-    precioConDescuento = precioProducto * 0.85;  
+    precioConDescuento = precioProducto * 0.85;
+    alert('El precio con descuento del/la '+producto+' es de $'+precioConDescuento);
+    ahorro = precioProducto * 0.15;  
 }
 
 function calcularDescuentoWallet(precioProducto)  {
     precioConDescuento = precioProducto * 0.90;
+    alert('El precio con descuento del/la '+producto+' es de $'+precioConDescuento);
+    ahorro = precioProducto * 0.10;
 }
 
 function calcularDescuentoCupon(precioProducto) {
     precioConDescuento = precioProducto * 0.80;
+    alert('El precio con descuento del/la '+producto+' es de $'+precioConDescuento);
+    ahorro = precioProducto * 0.10;
 }
 
-alert('El precio con descuento del/la '+producto+' es de $'+precioConDescuento);
+alert('Con la compra del/la '+producto+' ahorraste $'+ahorro);
