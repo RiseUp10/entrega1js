@@ -1,0 +1,88 @@
+let producto = prompt("Decime qué producto querés comprar");
+while (producto == "" || producto == " ") {
+  alert("Producto invalido");
+  producto = prompt("Decime qué producto querés comprar");
+}
+
+let precioProductoSinParsear = prompt('Cuál es el precio del/la '+producto);
+while (precioProductoSinParsear == "" || precioProductoSinParsear == " ") {
+  alert("Precio invalido");
+  precioProductoSinParsear = prompt("Cuál es el precio del/la "+producto);
+}
+
+precioProducto = parseInt(precioProductoSinParsear);
+
+let precioConDescuento = 0;
+
+let descuento = prompt(
+  "Contame como vas a pagar los $"+precioProducto+" del/la "+producto+
+    "\n1 - Tarjeta de crédito (-15%).\n2 - Billetera electrónica (-10%).\n3 - Cupón de descuento (-20%)."
+);
+
+   switch(descuento){
+    case '1':
+      calcularDescuentoTC(precioProducto);
+      break;
+
+    case '2':
+      calcularDescuentoWallet(precioProducto); 
+      break;
+
+    case '3':
+      calcularDescuentoCupon(precioProducto);
+      break;
+
+    default:
+      alert('Ingresaste un número equivocado');
+  }
+
+function calcularDescuentoTC(precioProducto) {
+    precioConDescuento = precioProducto * 0.85;  
+}
+
+function calcularDescuentoWallet(precioProducto)  {
+    precioConDescuento = precioProducto * 0.90;
+}
+
+function calcularDescuentoCupon(precioProducto) {
+    precioConDescuento = precioProducto * 0.80;
+}
+
+alert('El precio con descuento del/la '+producto+' es de $'+precioConDescuento);
+
+
+/* alert('Bienvenido/a '+nombreUsuario);
+
+let mensaje = prompt('Deseas comprar un producto? (s-si)');
+let total = 0;
+
+while(mensaje.toLowerCase() == 's') {
+    let producto = prompt('1 - teclado gamer Logitech $6000\n2 - Mouse wireless Genius $3900\n3 - Monitor curvo Samsung $40000');
+
+    switch(producto){
+        case '1':
+            alert('Agregaste Teclado gamer Logitech $6000 a tu carro.');
+            incrementarTotal(6000);
+            break;
+        case '2':
+            alert('Agregaste Mouse wireless Genius $3900 a tu carro.');
+            incrementarTotal(3900);
+            break;
+        case '3':
+            alert('Agregaste Monitor curvo Samsung $40000 a tu carro.');
+            incrementarTotal(40000);
+            break;
+        default:
+            alert('Escribi bien, sogan');
+            break;
+    }
+    
+        mensaje = prompt('Deseas comprar otro producto? (s-si)');
+}
+
+alert('El total de la compra es $'+total);
+
+function incrementarTotal(precio)   {    //Como se aplica el principio de hoisting, no importa adonde está la function.
+    total = total + precio;              //Esto no sucede con las funciones flecha o anónimas.
+    alert('Subtotal hasta el momento $'+total);
+} */
